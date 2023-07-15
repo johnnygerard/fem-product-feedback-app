@@ -35,6 +35,11 @@
             "assets": [
               "src/assets"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "styles": [
               "src/styles.scss"
             ],
@@ -103,6 +108,11 @@
             "assets": [
               "src/assets"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "styles": [
               "src/styles.scss"
             ],
