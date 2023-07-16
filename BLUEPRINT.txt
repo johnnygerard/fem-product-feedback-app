@@ -1,0 +1,24 @@
+This file describes the structure of the Angular application.
+
+Components:
+Suggestions
+  Logo
+  Suggestion
+  Filter
+  Sort
+  RoadmapView
+Roadmap
+  RoadmapItem
+  RoadmapHeader
+  RoadmapColumnHeaders
+AddFeedback
+EditFeedback
+Feedback
+  FeedbackItem
+  AddComment
+  Comments
+  Comment
+  Reply
+
+Services:
+FeedbackService (CRUD operations)
