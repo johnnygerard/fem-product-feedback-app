@@ -1,0 +1,211 @@
+@use 'index' as *;
+
+:host {
+  display: block;
+
+  @include mobile {
+    padding: 34px 24px 77px;
+    min-width: fit-content;
+  }
+
+  @include tablet {
+    padding: 56px 0 223px;
+  }
+
+  @include desktop {
+    padding: 92px 0 187px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+form {
+  border-radius: 10px;
+  background: #FFF;
+  padding: 52px 42px 40px;
+  width: 540px;
+  margin-top: 68px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    width: 327px;
+    margin-top: 55px;
+    padding: 44px 24px 24px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 42px;
+  transform: translateY(-50%);
+
+  @include mobile {
+    left: 24px;
+  }
+}
+
+.title {
+  margin-bottom: 40px;
+
+  // Typography
+  color: #3A4374;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.333px;
+
+  @include mobile {
+    margin-bottom: 24px;
+
+    // Typography
+    font-size: 18px;
+    letter-spacing: -0.25px;
+  }
+}
+
+label:not(:first-of-type) {
+  margin-top: 24px;
+}
+
+label>hgroup {
+  margin-bottom: 16px;
+
+  >h1 {
+    color: #3A4374;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.194px;
+
+    @include mobile {
+      font-size: 13px;
+      letter-spacing: -0.181px;
+    }
+  }
+
+  >p {
+    margin-top: 2px;
+
+    // Typography
+    color: #647196;
+    font-size: 14px;
+
+    @include mobile {
+      margin-top: 3px;
+
+      // Typography
+      font-size: 13px;
+    }
+  }
+}
+
+@mixin textUserInput {
+  color: #3A4374;
+  font-size: 15px;
+}
+
+input[name="title"] {
+  border: none;
+  cursor: text;
+  width: 100%;
+  height: 48px;
+  padding: 12px 24px 14px;
+  border-radius: 5px;
+  background: #F7F8FD;
+
+  @include textUserInput;
+}
+
+select {
+  border: none;
+  border-radius: 5px;
+  background: #F7F8FD;
+  width: 100%;
+  height: 48px;
+  padding: 14px 16px 15px;
+
+  // Typography
+  color: #3A4374;
+  font-size: 13px;
+}
+
+textarea {
+  border-radius: 5px;
+  background: #F7F8FD;
+  width: 100%;
+  height: 96px;
+  padding: 16px 24px;
+
+  @include textUserInput;
+
+  @include mobile {
+    height: 120px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+
+  @include mobile {
+    flex-direction: column-reverse;
+    margin-top: 40px;
+  }
+
+  button {
+    border-radius: 10px;
+    padding: 10.5px 24px;
+    height: 44px;
+
+    @include mobile {
+      height: 40px;
+      font-size: 13px;
+    }
+
+    // Typography
+    text-align: center;
+    color: #F2F4FE;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .cancel-button {
+    background: #3A4374;
+
+    &:is(:hover, :focus-visible) {
+      background: #656EA3;
+    }
+  }
+
+  .submit-button {
+    background: #AD1FEA;
+
+    &:is(:hover, :focus-visible) {
+      background: #C75AF6;
+    }
+  }
+}
+
+.control {
+  &:is(:hover, :focus-visible):not(.invalid) {
+    outline: 1px solid #4661E6;
+  }
+
+  &.invalid {
+    outline: 1px solid #D73737;
+  }
+}
+
+p.invalid {
+  margin-top: 4px;
+
+  // Typography
+  color: #D73737;
+  font-size: 14px;
+}

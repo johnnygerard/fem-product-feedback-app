@@ -1,0 +1,24 @@
+@use 'index' as *;
+
+:host {
+  display: block;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  
+  // Typography
+  color: #647196;
+  font-size: 14px;
+  font-weight: 700;
+
+  &:is(:hover, :focus-visible) {
+    text-decoration-line: underline;
+  }
+
+  @include mobile {
+    font-size: 13px;
+  }
+}

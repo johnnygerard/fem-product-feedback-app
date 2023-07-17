@@ -57,7 +57,19 @@ li {
 }
 
 button {
-  all: unset;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+textarea {
+  display: block;
+  resize: none;
+  border: none;
+}
+
+select {
   cursor: pointer;
 }
 
