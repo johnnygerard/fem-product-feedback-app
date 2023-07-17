@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,5 +10,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'fem-product-feedback-app';
+  constructor(location: Location) {
+    location.go('/add-feedback');
+  }
 }

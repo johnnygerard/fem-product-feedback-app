@@ -48,7 +48,7 @@ export class AddFeedbackComponent {
     this.router.navigate(['/']);
   }
 
-  protected isRequired(model: NgModel, form: NgForm): boolean | null {
+  protected isInvalid(model: NgModel, form: NgForm): boolean | null {
     return model.invalid && (model.dirty || model.touched || form.submitted);
   }
 }
