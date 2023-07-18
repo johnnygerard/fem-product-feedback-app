@@ -1,0 +1,4 @@
+<button type="button" (click)="toggleActiveState()" [class.active]="isActive">
+  <app-up-arrow-svg [class.active]="isActive" />
+  <span [class.active]="isActive">{{ upvotes }}</span>
+</button>
