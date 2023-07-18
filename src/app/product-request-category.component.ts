@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FeedbackCategory } from './Types/feedback-category.enum';
+import { ProductRequestCategory } from './Types/product-request-category.enum';
 
 @Component({
-  selector: 'app-feedback-category',
+  selector: 'app-product-request-category',
   standalone: true,
   imports: [CommonModule],
   template: `{{ category }}`,
@@ -25,6 +25,6 @@ import { FeedbackCategory } from './Types/feedback-category.enum';
     `
   ]
 })
-export class FeedbackCategoryComponent {
-  @Input({ required: true }) category = FeedbackCategory.ALL;
+export class ProductRequestCategoryComponent {
+  @Input({ required: true }) category = ProductRequestCategory.ALL;
 }

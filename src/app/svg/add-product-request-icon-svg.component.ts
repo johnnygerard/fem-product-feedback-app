@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-add-feedback-icon-svg',
+  selector: 'app-add-product-request-icon-svg',
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -26,6 +26,6 @@ import { CommonModule } from '@angular/common';
     `
   ]
 })
-export class AddFeedbackIconSvgComponent {
+export class AddProductRequestIconSvgComponent {
 
 }

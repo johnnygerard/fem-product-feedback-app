@@ -1,5 +1,5 @@
 export type User = {
-  handle: string; // @username
-  fullName: string;
-  avatar: string; // URL
+  username: string; // @handle
+  name: string;
+  image: string; // URL
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <app-go-back />
   <form (ngSubmit)="submitForm(form)" #form="ngForm">
-    <app-add-feedback-icon-svg class="icon" />
+    <app-add-product-request-icon-svg class="icon" />
     <h1 class="title">Create New Feedback</h1>
     <label>
       <hgroup>
@@ -29,7 +29,7 @@
         <p>Include any specific comments on what should be improved, added, etc.</p>
       </hgroup>
       <textarea class="control" [class.invalid]="isInvalid(detailText, form)" name="detail"
-          [(ngModel)]="detail" required #detailText="ngModel"></textarea>
+          [(ngModel)]="description" required #detailText="ngModel"></textarea>
       <p class="invalid" *ngIf="isInvalid(detailText, form)">{{ requiredError }}</p>
     </label>
     <div class="buttons">

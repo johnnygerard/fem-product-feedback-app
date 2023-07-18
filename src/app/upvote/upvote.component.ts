@@ -1,8 +1,8 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FeedbackService } from '../feedback.service';
 import { UpArrowSvgComponent } from '../svg/up-arrow-svg.component';
-import { Feedback } from '../Types/feedback.class';
+import { ProductRequest } from '../Types/product-request.class';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-upvote',
@@ -12,32 +12,26 @@ import { Feedback } from '../Types/feedback.class';
   styleUrls: ['./upvote.component.scss']
 })
 export class UpvoteComponent {
-  @Input() feedbackID = -1;
+  @Input({ required: true }) productRequestID = 0;
 
-  private get feedback(): Feedback {
-    return this.feedbackService.getFeedback(this.feedbackID);
+  private get productRequest(): ProductRequest {
+    return this.dataService.getProductRequest(this.productRequestID);
   }
 
   protected get upvotes(): number {
-    return this.feedback.upvotes;
+    return this.productRequest.upvotes;
   }
 
   private set upvotes(value: number) {
-    this.feedback.upvotes = value;
+    this.productRequest.upvotes = value;
   }
 
-  protected get isActive(): boolean {
-    return this.feedback.upvoted;
-  }
-
-  private set isActive(value: boolean) {
-    this.feedback.upvoted = value;
-  }
+  protected isActive = false;
 
   protected toggleActiveState(): void {
     this.upvotes += this.isActive ? -1 : 1;
     this.isActive = !this.isActive;
   }
 
-  constructor(private readonly feedbackService: FeedbackService) { }
+  constructor(private readonly dataService: DataService) { }
 }
