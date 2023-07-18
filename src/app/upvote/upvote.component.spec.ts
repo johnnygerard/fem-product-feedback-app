@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UpvoteComponent } from './upvote.component';
 import { FeedbackService } from '../feedback.service';
-import { Feedback } from '../Types/feedback.class';
-import { FeedbackCategory } from '../Types/feedback-category.enum';
+import { ProductRequest } from '../Types/product-request.class';
+import { ProductRequestCategory } from '../Types/product-request-category.enum';
 
 describe('UpvoteComponent', () => {
   let component: UpvoteComponent;
@@ -24,15 +24,15 @@ describe('UpvoteComponent', () => {
   for (const upvoted of [true, false]) {
     it('should toggle state on click', () => {
       const upvotes = 17;
-      component.feedbackID = feedbackService.addFeedback(new Feedback(
+      component.productRequestID = feedbackService.addFeedback(new ProductRequest(
         'title',
-        FeedbackCategory.FEATURE,
+        ProductRequestCategory.FEATURE,
         'detail',
         upvotes,
         upvoted
       ));
 
-      const feedback = feedbackService.getFeedback(component.feedbackID);
+      const feedback = feedbackService.getFeedback(component.productRequestID);
 
       hostElement.click();
       expect(feedback.upvotes).toEqual(upvotes + (upvoted ? -1 : 1));

@@ -2,50 +2,50 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GoBackComponent } from '../go-back/go-back.component';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
-import { FeedbackCategory } from '../Types/feedback-category.enum';
+import { ProductRequestCategory } from '../Types/product-request-category.enum';
 import { Router } from '@angular/router';
-import { FeedbackService } from '../feedback.service';
-import { AddFeedbackIconSvgComponent } from '../svg/add-feedback-icon-svg.component';
-import { Feedback } from '../Types/feedback.class';
+import { AddProductRequestIconSvgComponent } from '../svg/add-product-request-icon-svg.component';
+import { DataService } from '../data.service';
 
 @Component({
-  selector: 'app-add-feedback',
+  selector: 'app-add-product-request',
   standalone: true,
   imports: [
     CommonModule,
     GoBackComponent,
     FormsModule,
-    AddFeedbackIconSvgComponent,
+    AddProductRequestIconSvgComponent,
   ],
-  templateUrl: './add-feedback.component.html',
-  styleUrls: ['./add-feedback.component.scss']
+  templateUrl: './add-product-request.component.html',
+  styleUrls: ['./add-product-request.component.scss']
 })
-export class AddFeedbackComponent {
+export class AddProductRequestComponent {
   protected title = '';
-  protected category = FeedbackCategory.FEATURE;
+  protected category = ProductRequestCategory.FEATURE;
   protected categories = [
-    FeedbackCategory.FEATURE,
-    FeedbackCategory.UI,
-    FeedbackCategory.UX,
-    FeedbackCategory.ENHANCEMENT,
-    FeedbackCategory.BUG,
+    ProductRequestCategory.FEATURE,
+    ProductRequestCategory.UI,
+    ProductRequestCategory.UX,
+    ProductRequestCategory.ENHANCEMENT,
+    ProductRequestCategory.BUG,
   ];
 
-  protected detail = '';
+  protected description = '';
   protected requiredError = 'Can’t be empty';
 
   constructor(
     private readonly router: Router,
-    private readonly feedbackService: FeedbackService) { }
+    private readonly dataService: DataService,
+  ) { }
 
   protected submitForm(form: NgForm): void {
     if (form.invalid) return;
 
-    this.feedbackService.addFeedback(new Feedback(
+    this.dataService.addProductRequest(
       this.title,
       this.category,
-      this.detail
-    ));
+      this.description
+    );
     this.router.navigate(['/']);
   }
 

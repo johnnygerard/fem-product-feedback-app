@@ -2,16 +2,22 @@ import { Reply } from "./reply.class";
 import type { User } from "./user.type";
 
 export class Comment {
-  readonly replies: Reply[] = [];
+  replies?: Reply[] = undefined;
 
   constructor(
-    public readonly author: User,
-    public readonly text: string,
-  ) { }
+    public readonly id: number,
+    public readonly content: string,
+    public readonly user: User,
+    ) { }
 
-  reply(author: User, text: string): void {
-    const reply = new Reply(author, text, this.author, this);
-    
-    this.replies.push(reply);
-  }
+    /**
+     * Reply to the comment or one of its replies
+     * @param content Content of the reply
+     * @param replyingTo Username of the comment's author or a reply's author
+     * @param user Current user
+     */
+    reply(content: string, replyingTo: string, user: User): void {
+      if (!this.replies) this.replies = [];
+      this.replies.push(new Reply(content, replyingTo, user));
+    }
 }
