@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UpArrowSvgComponent } from '../svg/up-arrow-svg.component';
 import { ProductRequest } from '../Types/product-request.class';
@@ -15,7 +15,12 @@ export class UpvoteComponent {
   @Input({ required: true }) productRequestID = 0;
 
   private get productRequest(): ProductRequest {
-    return this.dataService.getProductRequest(this.productRequestID);
+    const productRequest = this.dataService.getProductRequest(this.productRequestID);
+
+    if (!productRequest)
+      throw Error(`Product request with ID ${this.productRequestID} not found`);
+
+    return productRequest;
   }
 
   protected get upvotes(): number {

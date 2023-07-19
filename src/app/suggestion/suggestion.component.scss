@@ -1,0 +1,95 @@
+@use 'index' as *;
+
+:host {
+  padding: 28px 32px;
+  border-radius: 10px;
+  background: #FFF;
+
+  @include mobile {
+    width: 327px;
+    padding: 24px;
+  }
+
+  @include tablet {
+    width: 689px;
+  }
+
+  @include desktop {
+    width: 825px;
+  }
+}
+
+.container {
+  padding-left: 80px;
+  padding-right: 68px;
+  position: relative;
+
+  @include mobile {
+    padding: 0 0 72px;
+  }
+}
+
+app-upvote {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include mobile {
+    top: unset;
+    bottom: 0;
+  }
+}
+
+.title {
+  // Typography
+  color: #3A4374;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+
+  @include mobile {
+    font-size: 13px;
+    letter-spacing: -0.181px;
+  }
+}
+
+.description {
+  margin: 4px 0 12px;
+
+  // Typography
+  color: #647196;
+  font-size: 16px;
+
+  @include mobile {
+    margin: 9px 0 8px;
+
+    // Typography
+    font-size: 13px;
+  }
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  // centered vertically on the right
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+
+  @include mobile {
+    top: unset;
+    transform: unset;
+    bottom: 0;
+  }
+
+  &-count {
+    // Typography
+    color: #3A4374;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.222px;
+  }
+}

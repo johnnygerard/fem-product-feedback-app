@@ -1,10 +1,10 @@
 import type { ProductRequestCategory } from "./product-request-category.enum";
-import type { Comment } from "./comment.class";
+import type { AppComment } from "./comment.class";
 import { ProductRequestStatus } from "./product-request-status.enum";
 
 export class ProductRequest {
   status = ProductRequestStatus.SUGGESTION;
-  readonly comments: Comment[] = [];
+  readonly comments: AppComment[] = [];
   
   constructor(
     public readonly id: number,
@@ -12,6 +12,5 @@ export class ProductRequest {
     public category: ProductRequestCategory,
     public description: string,
     public upvotes = 0,
-    public upvoted = false // by the current user (this is a simplification)
   ) { }
 }
