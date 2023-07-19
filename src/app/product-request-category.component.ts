@@ -15,6 +15,7 @@ import { ProductRequestCategory } from './Types/product-request-category.enum';
         border-radius: 10px;
         background: #F2F4FF;
         height: 30px;
+        width: fit-content;
         padding: 0 16px;
 
         // Typography

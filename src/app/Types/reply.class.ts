@@ -5,5 +5,5 @@ export class Reply {
     public readonly content: string,
     public readonly replyingTo: string, // username
     public readonly user: User, // author
-    ) { }
+  ) { }
 }
