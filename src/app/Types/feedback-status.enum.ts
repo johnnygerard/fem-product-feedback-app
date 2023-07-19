@@ -1,4 +1,4 @@
-export const enum ProductRequestStatus {
+export const enum FeedbackStatus {
   SUGGESTION = 'Suggestion', // Default
   PLANNED = 'Planned',
   IN_PROGRESS = 'In-Progress',

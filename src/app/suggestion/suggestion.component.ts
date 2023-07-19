@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../data.service';
 import { UpvoteComponent } from '../upvote/upvote.component';
-import { ProductRequestCategoryComponent } from '../product-request-category.component';
+import { FeedbackCategoryComponent } from '../feedback-category.component';
 import { CommentIconSvgComponent } from '../svg/comment-icon-svg.component';
-import { ProductRequest } from '../Types/product-request.class';
+import { Feedback } from '../Types/feedback.class';
 import { AppComment } from '../Types/comment.class';
 
 @Component({
@@ -13,16 +13,16 @@ import { AppComment } from '../Types/comment.class';
   imports: [
     CommonModule,
     UpvoteComponent,
-    ProductRequestCategoryComponent,
+    FeedbackCategoryComponent,
     CommentIconSvgComponent,
   ],
   templateUrl: './suggestion.component.html',
   styleUrls: ['./suggestion.component.scss']
 })
 export class SuggestionComponent {
-  @Input({ required: true }) productRequestID = 0;
-  protected get productRequest(): ProductRequest {
-    return this.dataService.getProductRequest(this.productRequestID);
+  @Input({ required: true }) feedbackID = 0;
+  protected get feedback(): Feedback {
+    return this.dataService.getFeedback(this.feedbackID);
   }
 
   constructor(private readonly dataService: DataService) { }

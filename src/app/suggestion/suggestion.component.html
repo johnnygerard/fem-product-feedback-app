@@ -1,10 +1,10 @@
 <div class="container">
-  <app-upvote [productRequestID]="productRequestID" />
-  <h1 class="title">{{ productRequest.title }}</h1>
-  <p class="description">{{ productRequest.description }}</p>
-  <app-product-request-category [category]="productRequest.category" />
+  <app-upvote [feedbackID]="feedbackID" />
+  <h1 class="title">{{ feedback.title }}</h1>
+  <p class="description">{{ feedback.description }}</p>
+  <app-feedback-category [category]="feedback.category" />
   <div class="comment">
     <app-comment-icon-svg />
-    <span class="comment-count">{{ getCommentCount(productRequest.comments) }}</span>
+    <span class="comment-count">{{ getCommentCount(feedback.comments) }}</span>
   </div>
 </div>
