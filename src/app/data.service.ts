@@ -1,14 +1,14 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User } from './Types/user.type';
-import { ProductRequest } from './Types/product-request.class';
+import { Feedback } from './Types/feedback.class';
 import { Subject, delay, of, retry, takeUntil, throwError } from 'rxjs';
-import { ProductRequestCategory } from './Types/product-request-category.enum';
-import { ProductRequestStatus } from './Types/product-request-status.enum';
+import { FeedbackCategory } from './Types/feedback-category.enum';
+import { FeedbackStatus } from './Types/feedback-status.enum';
 
 type Data = {
   currentUser: User;
-  productRequests: ProductRequest[];
+  feedback: Feedback[];
 };
 
 const defaultData: Data = {
@@ -17,7 +17,7 @@ const defaultData: Data = {
     "name": "Zena Kelley",
     "username": "velvetround"
   },
-  "productRequests": []
+  "feedback": []
 };
 
 // Temporary data for testing purposes
@@ -27,13 +27,13 @@ const testData: Data = {
     "name": "Zena Kelley",
     "username": "velvetround"
   },
-  "productRequests": [
+  "feedback": [
     {
       "id": 1,
       "title": "Add tags for solutions",
-      "category": ProductRequestCategory.ENHANCEMENT,
+      "category": FeedbackCategory.ENHANCEMENT,
       "upvotes": 112,
-      "status": ProductRequestStatus.SUGGESTION,
+      "status": FeedbackStatus.SUGGESTION,
       "description": "Easier to search for solutions based on a specific stack.",
       "comments": [
         {
@@ -59,9 +59,9 @@ const testData: Data = {
     {
       "id": 2,
       "title": "Add a dark theme option",
-      "category": ProductRequestCategory.FEATURE,
+      "category": FeedbackCategory.FEATURE,
       "upvotes": 99,
-      "status": ProductRequestStatus.SUGGESTION,
+      "status": FeedbackStatus.SUGGESTION,
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
         {
@@ -141,20 +141,20 @@ export class DataService implements OnDestroy {
     this.destroy$.complete();
   }
 
-  addProductRequest(
+  addFeedback(
     title: string,
-    category: ProductRequestCategory,
+    category: FeedbackCategory,
     description: string
   ): void {
-    this.data.productRequests.push(new ProductRequest(
-      this.data.productRequests.length + 1,
+    this.data.feedback.push(new Feedback(
+      this.data.feedback.length + 1,
       title,
       category,
       description
     ));
   }
 
-  getProductRequest(id: number): ProductRequest {
-    return this.data.productRequests[id - 1];
+  getFeedback(id: number): Feedback {
+    return this.data.feedback[id - 1];
   }
 }

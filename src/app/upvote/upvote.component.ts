@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UpArrowSvgComponent } from '../svg/up-arrow-svg.component';
-import { ProductRequest } from '../Types/product-request.class';
+import { Feedback } from '../Types/feedback.class';
 import { DataService } from '../data.service';
 
 @Component({
@@ -12,23 +12,18 @@ import { DataService } from '../data.service';
   styleUrls: ['./upvote.component.scss']
 })
 export class UpvoteComponent {
-  @Input({ required: true }) productRequestID = 0;
+  @Input({ required: true }) feedbackID = 0;
 
-  private get productRequest(): ProductRequest {
-    const productRequest = this.dataService.getProductRequest(this.productRequestID);
-
-    if (!productRequest)
-      throw Error(`Product request with ID ${this.productRequestID} not found`);
-
-    return productRequest;
+  private get feedback(): Feedback {
+    return this.dataService.getFeedback(this.feedbackID);
   }
 
   protected get upvotes(): number {
-    return this.productRequest.upvotes;
+    return this.feedback.upvotes;
   }
 
   private set upvotes(value: number) {
-    this.productRequest.upvotes = value;
+    this.feedback.upvotes = value;
   }
 
   protected isActive = false;

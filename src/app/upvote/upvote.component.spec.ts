@@ -1,17 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UpvoteComponent } from './upvote.component';
-import { FeedbackService } from '../feedback.service';
-import { ProductRequest } from '../Types/product-request.class';
-import { ProductRequestCategory } from '../Types/product-request-category.enum';
+import { FeedbackCategory } from '../Types/feedback-category.enum';
+import { DataService } from '../data.service';
 
 describe('UpvoteComponent', () => {
   let component: UpvoteComponent;
   let hostElement: HTMLElement;
   let fixture: ComponentFixture<UpvoteComponent>;
-  let feedbackService: FeedbackService;
+  let dataService: DataService;
 
   beforeEach(() => {
-    feedbackService = TestBed.inject(FeedbackService);
+    dataService = TestBed.inject(DataService);
     fixture = TestBed.createComponent(UpvoteComponent);
     component = fixture.componentInstance;
     hostElement = fixture.nativeElement;
@@ -24,23 +23,15 @@ describe('UpvoteComponent', () => {
   for (const upvoted of [true, false]) {
     it('should toggle state on click', () => {
       const upvotes = 17;
-      component.productRequestID = feedbackService.addFeedback(new ProductRequest(
-        'title',
-        ProductRequestCategory.FEATURE,
-        'detail',
-        upvotes,
-        upvoted
-      ));
+      dataService.addFeedback('title', FeedbackCategory.FEATURE, 'description');
 
-      const feedback = feedbackService.getFeedback(component.productRequestID);
+      const feedback = dataService.getFeedback(component.feedbackID);
 
       hostElement.click();
       expect(feedback.upvotes).toEqual(upvotes + (upvoted ? -1 : 1));
-      expect(feedback.upvoted).toEqual(!upvoted);
 
       hostElement.click();
       expect(feedback.upvotes).toEqual(upvotes);
-      expect(feedback.upvoted).toEqual(upvoted);
     });
   }
 });

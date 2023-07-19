@@ -2,32 +2,32 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GoBackComponent } from '../go-back/go-back.component';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
-import { ProductRequestCategory } from '../Types/product-request-category.enum';
 import { Router } from '@angular/router';
-import { AddProductRequestIconSvgComponent } from '../svg/add-product-request-icon-svg.component';
 import { DataService } from '../data.service';
+import { AddFeedbackIconSvgComponent } from '../svg/add-feedback-icon-svg.component';
+import { FeedbackCategory } from '../Types/feedback-category.enum';
 
 @Component({
-  selector: 'app-add-product-request',
+  selector: 'app-add-feedback',
   standalone: true,
   imports: [
     CommonModule,
     GoBackComponent,
     FormsModule,
-    AddProductRequestIconSvgComponent,
+    AddFeedbackIconSvgComponent,
   ],
-  templateUrl: './add-product-request.component.html',
-  styleUrls: ['./add-product-request.component.scss']
+  templateUrl: './add-feedback.component.html',
+  styleUrls: ['./add-feedback.component.scss']
 })
-export class AddProductRequestComponent {
+export class AddFeedbackComponent {
   protected title = '';
-  protected category = ProductRequestCategory.FEATURE;
+  protected category = FeedbackCategory.FEATURE;
   protected categories = [
-    ProductRequestCategory.FEATURE,
-    ProductRequestCategory.UI,
-    ProductRequestCategory.UX,
-    ProductRequestCategory.ENHANCEMENT,
-    ProductRequestCategory.BUG,
+    FeedbackCategory.FEATURE,
+    FeedbackCategory.UI,
+    FeedbackCategory.UX,
+    FeedbackCategory.ENHANCEMENT,
+    FeedbackCategory.BUG,
   ];
 
   protected description = '';
@@ -41,7 +41,7 @@ export class AddProductRequestComponent {
   protected submitForm(form: NgForm): void {
     if (form.invalid) return;
 
-    this.dataService.addProductRequest(
+    this.dataService.addFeedback(
       this.title,
       this.category,
       this.description

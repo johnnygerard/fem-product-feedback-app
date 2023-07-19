@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { ProductRequestCategory } from './Types/product-request-category.enum';
+import { FeedbackCategory } from './Types/feedback-category.enum';
 import { AddFeedbackLinkComponent } from './add-feedback-link.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { AddFeedbackLinkComponent } from './add-feedback-link.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  protected category = ProductRequestCategory.FEATURE;
+  protected category = FeedbackCategory.FEATURE;
 
   constructor(location: Location) {
     location.go('/');
