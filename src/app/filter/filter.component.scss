@@ -1,0 +1,59 @@
+@use 'index' as *;
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 8px;
+  width: 223px;
+  border-radius: 10px;
+  background: #FFF;
+  padding: 24px;
+
+  @include desktop {
+    width: 255px;
+  }
+}
+
+label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: #F2F4FF;
+
+  // Typography
+  color: #4661E6;
+  font-size: 13px;
+  font-weight: 600;
+
+  &.checked {
+    background: #4661E6;
+
+    // Typography
+    color: #FFF;
+  }
+
+  &:is(:hover, :focus-visible):not(.checked) {
+    background: #CFD7FF;
+  }
+}
+
+input[type="radio"] {
+  appearance: none;
+
+  // Size the input to its parent to provide an outline on focus
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid #FFF;
+    outline-offset: -4px;
+  }
+}

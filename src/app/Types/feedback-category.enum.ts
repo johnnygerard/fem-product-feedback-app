@@ -1,4 +1,4 @@
-export const enum FeedbackCategory {
+export enum FeedbackCategory {
   ALL = 'All', // Default
   UI = 'UI',
   UX = 'UX',
