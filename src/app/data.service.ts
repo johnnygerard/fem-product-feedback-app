@@ -157,4 +157,10 @@ export class DataService implements OnDestroy {
   getFeedback(id: number): Feedback {
     return this.data.feedback[id - 1];
   }
+
+  getFeedbackCountByStatus(status: FeedbackStatus): number {
+    return this.data.feedback.filter(
+      feedback => feedback.status === status
+    ).length;
+  }
 }
