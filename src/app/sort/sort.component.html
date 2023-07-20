@@ -1,0 +1,9 @@
+<app-suggestion-icon-svg />
+<span class="suggestion-count">{{ suggestionCount }} Suggestions</span>
+<div class="sort">
+  <span class="sort-by">Sort by : </span>
+  <select name="sort" [(ngModel)]="selectedOption">
+    <option *ngFor="let option of options">{{ option }}</option>
+  </select>
+</div>
+<app-add-feedback-link />

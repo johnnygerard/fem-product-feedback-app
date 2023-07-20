@@ -1,0 +1,85 @@
+@use 'index' as *;
+
+:host {
+  display: flex;
+  align-items: center;
+  width: 825px;
+  height: 72px;
+  border-radius: 10px;
+  background: #373F68;
+  padding-left: 24px;
+  padding-right: 16px;
+
+  @include tablet {
+    width: 689px;
+    padding-right: 12px;
+  }
+
+  @include mobile {
+    height: 56px;
+    width: 100%;
+    min-width: 375px;
+    border-radius: 0;
+    padding-right: 24px;
+  }
+}
+
+app-suggestion-icon-svg {
+  @include mobile {
+    display: none;
+  }
+}
+
+.suggestion-count {
+  margin-left: 16px;
+
+  // Typography
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.sort-by {
+  margin-left: 38px;
+
+  @include mobile {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  // Typography
+  color: #F2F4FE;
+  font-size: 14px;
+}
+
+select {
+  background: none;
+  border: none;
+
+  // Typography
+  color: #F2F4FE;
+  font-size: 14px;
+  font-weight: 700;
+
+  &:is(:hover, :focus-visible) {
+    opacity: 0.75;
+  }
+
+  @include mobile {
+    font-size: 13px;
+  }
+}
+
+option {
+  color: #647196;
+  font-size: 16px;
+}
+
+app-add-feedback-link {
+  margin-left: auto;
+}
