@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FilterComponent } from './filter/filter.component';
+import { NoFeedbackComponent } from './no-feedback/no-feedback.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FilterComponent],
+  imports: [CommonModule, RouterOutlet, NoFeedbackComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
