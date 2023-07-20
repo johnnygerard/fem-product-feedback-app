@@ -48,7 +48,7 @@ samp {
   font-family: monospace;
 }
 
-ul {
+ul, ol {
   padding: 0;
 }
 
