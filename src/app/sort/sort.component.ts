@@ -4,6 +4,8 @@ import { SortOrder } from '../Types/sort-order.enum';
 import { SuggestionIconSvgComponent } from '../svg/suggestion-icon-svg.component';
 import { AddFeedbackLinkComponent } from '../add-feedback-link.component';
 import { FormsModule } from '@angular/forms';
+import { DataService } from '../data.service';
+import { FeedbackStatus } from '../Types/feedback-status.enum';
 
 @Component({
   selector: 'app-sort',
@@ -18,8 +20,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./sort.component.scss']
 })
 export class SortComponent {
-  @Input({ required: true }) suggestionCount = 0;
   @Output() sortOrderEvent = new EventEmitter<SortOrder>();
+  protected suggestionCount: number;
   private _selectedOption = SortOrder.MOST_UPVOTES;
 
   protected get selectedOption(): SortOrder {
@@ -32,4 +34,8 @@ export class SortComponent {
   }
 
   protected options = Object.values(SortOrder);
+
+  constructor(dataService: DataService) {
+    this.suggestionCount = dataService.getFeedbackCountByStatus(FeedbackStatus.SUGGESTION);
+  }
 }
