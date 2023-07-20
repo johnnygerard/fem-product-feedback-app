@@ -1,0 +1,4 @@
+<label *ngFor="let filter of filterOptions" [class.checked]="filter === selectedFilter">
+  {{ filter }}
+  <input type="radio" name="filter" [value]="filter" [(ngModel)]="selectedFilter">
+</label>
