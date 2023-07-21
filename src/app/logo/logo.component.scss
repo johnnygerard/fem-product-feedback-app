@@ -3,20 +3,29 @@
 :host {
   display: block;
   position: relative;
-  width: 255px;
-  height: 137px;
   border-radius: 10px;
 
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: $mobile-logo;
+    border-radius: 0;
+    height: 72px;
+    width: 100%;
+  }
+
   @include tablet {
+    background: $tablet-logo;
     width: 223px;
     height: 178px;
   }
 
-  @include mobile {
-    border-radius: 0;
-    height: 72px;
-    width: 100%;
-    background: radial-gradient(166.82% 166.82% at 103.90% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%);
+  @include desktop {
+    background: $desktop-logo;
+    width: 255px;
+    height: 137px;
   }
 }
 
@@ -26,12 +35,12 @@ hgroup {
   left: 24px;
 
   @include mobile {
-    bottom: unset;
-    top: 16px;
+    position: static;
   }
 }
 
 .title {
+  // Typography
   color: #FFF;
   font-size: 20px;
   font-weight: 700;
@@ -44,19 +53,37 @@ hgroup {
 }
 
 .subtitle {
+  // Typography
   color: #FFF;
   font-size: 15px;
   font-weight: 500;
   opacity: 0.75;
 
-  svg {
-    @include mobile {
-      width: 100vw;
-      height: 72px;
-    }
-  }
-
   @include mobile {
     font-size: 13px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 72px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0008;
+  z-index: 1;
+
+  .sidebar {
+    position: fixed;
+    right: 0;
+    top: 72px;
+    bottom: 0;
+    background: #F7F8FD;
+    padding: 24px;
+    overflow-y: auto; // Enable vertical scrolling
+
+    app-roadmap-view {
+      margin-top: 24px;
+    }
   }
 }
