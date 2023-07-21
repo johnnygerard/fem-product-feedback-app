@@ -19,10 +19,6 @@ import { RoadmapViewComponent } from '../roadmap-view/roadmap-view.component';
   styleUrls: ['./logo.component.scss']
 })
 export class LogoComponent {
-  test() {
-    console.log('test');
-
-  }
   protected isSidebarOpen = false;
   protected viewPortWidth = window.innerWidth;
 
