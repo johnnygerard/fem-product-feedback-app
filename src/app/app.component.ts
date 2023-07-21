@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { LogoComponent } from './logo/logo.component';
+import { AddFeedbackComponent } from './add-feedback/add-feedback.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, LogoComponent],
+  imports: [CommonModule, RouterOutlet, AddFeedbackComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

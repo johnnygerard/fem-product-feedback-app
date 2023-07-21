@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../data.service';
 import { FeedbackStatus } from '../Types/feedback-status.enum';
 import { RouterModule } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-roadmap-view',
@@ -11,14 +12,28 @@ import { RouterModule } from '@angular/router';
   templateUrl: './roadmap-view.component.html',
   styleUrls: ['./roadmap-view.component.scss']
 })
-export class RoadmapViewComponent {
-  protected planned: number;
-  protected inProgress: number;
-  protected live: number;
+export class RoadmapViewComponent implements OnInit, OnDestroy {
+  protected planned = 0;
+  protected inProgress = 0;
+  protected live = 0;
+  private readonly destroy$ = new Subject<void>();
 
-  constructor(dataService: DataService) {
-    this.planned = dataService.getFeedbackCountByStatus(FeedbackStatus.PLANNED);
-    this.inProgress = dataService.getFeedbackCountByStatus(FeedbackStatus.IN_PROGRESS);
-    this.live = dataService.getFeedbackCountByStatus(FeedbackStatus.LIVE);
+  constructor(private readonly dataService: DataService) { }
+
+  ngOnInit(): void {
+    this.dataService.isLoaded$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(isLoaded => {
+        if (!isLoaded) return;
+
+        this.planned = this.dataService.countFeedback(FeedbackStatus.PLANNED);
+        this.inProgress = this.dataService.countFeedback(FeedbackStatus.IN_PROGRESS);
+        this.live = this.dataService.countFeedback(FeedbackStatus.LIVE);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
