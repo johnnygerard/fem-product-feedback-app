@@ -5,7 +5,7 @@ import { UpvoteComponent } from '../upvote/upvote.component';
 import { FeedbackCategoryComponent } from '../feedback-category.component';
 import { CommentIconSvgComponent } from '../svg/comment-icon-svg.component';
 import { Feedback } from '../Types/feedback.class';
-import { AppComment } from '../Types/comment.class';
+import { FeedbackComment } from '../Types/feedback-comment.class';
 
 @Component({
   selector: 'app-suggestion',
@@ -27,7 +27,8 @@ export class SuggestionComponent {
 
   constructor(private readonly dataService: DataService) { }
 
-  protected getCommentCount(comments: AppComment[]): number {
+  protected getCommentCount(comments?: FeedbackComment[]): number {
+    if (!comments) return 0;
     let count = comments.length;
 
     for (const comment of comments)

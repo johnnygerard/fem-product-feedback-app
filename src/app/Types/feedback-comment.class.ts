@@ -1,7 +1,7 @@
 import { Reply } from "./reply.class";
 import type { User } from "./user.type";
 
-export class AppComment {
+export class FeedbackComment {
   replies?: Reply[] = undefined;
 
   constructor(

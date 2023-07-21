@@ -1,11 +1,11 @@
 import type { FeedbackCategory } from "./feedback-category.enum";
-import type { AppComment } from "./comment.class";
+import type { FeedbackComment } from "./feedback-comment.class";
 import { FeedbackStatus } from "./feedback-status.enum";
 
 export class Feedback {
   status = FeedbackStatus.SUGGESTION;
-  readonly comments: AppComment[] = [];
-  
+  comments?: FeedbackComment[];
+
   constructor(
     public readonly id: number,
     public title: string,
