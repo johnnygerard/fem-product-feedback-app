@@ -27,13 +27,7 @@ export class SuggestionComponent {
 
   constructor(private readonly dataService: DataService) { }
 
-  protected getCommentCount(comments?: FeedbackComment[]): number {
-    if (!comments) return 0;
-    let count = comments.length;
-
-    for (const comment of comments)
-      count += comment.replies?.length ?? 0;
-
-    return count;
+  protected countComments(comments?: FeedbackComment[]): number {
+    return FeedbackComment.countComments(comments);
   }
 }

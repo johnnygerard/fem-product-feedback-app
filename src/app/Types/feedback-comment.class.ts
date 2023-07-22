@@ -9,4 +9,14 @@ export class FeedbackComment {
     public readonly content: string,
     public readonly user: User,
   ) { }
+
+  static countComments(comments?: FeedbackComment[]): number {
+    if (!comments) return 0;
+    let count = comments.length;
+
+    for (const comment of comments)
+      count += comment.replies?.length ?? 0;
+
+    return count;
+  }
 }
