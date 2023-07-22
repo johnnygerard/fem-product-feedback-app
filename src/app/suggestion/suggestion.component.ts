@@ -6,6 +6,7 @@ import { FeedbackCategoryComponent } from '../feedback-category.component';
 import { CommentIconSvgComponent } from '../svg/comment-icon-svg.component';
 import { Feedback } from '../Types/feedback.class';
 import { FeedbackComment } from '../Types/feedback-comment.class';
+import { CommentCountComponent } from '../comment-count/comment-count.component';
 
 @Component({
   selector: 'app-suggestion',
@@ -15,6 +16,7 @@ import { FeedbackComment } from '../Types/feedback-comment.class';
     UpvoteComponent,
     FeedbackCategoryComponent,
     CommentIconSvgComponent,
+    CommentCountComponent,
   ],
   templateUrl: './suggestion.component.html',
   styleUrls: ['./suggestion.component.scss']

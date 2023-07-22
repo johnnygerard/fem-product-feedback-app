@@ -3,8 +3,5 @@
   <h1 class="title">{{ feedback.title }}</h1>
   <p class="description">{{ feedback.description }}</p>
   <app-feedback-category [category]="feedback.category" />
-  <div class="comment">
-    <app-comment-icon-svg />
-    <span class="comment-count">{{ countComments(feedback.comments) }}</span>
-  </div>
+  <app-comment-count class="comment-count" [count]="countComments(feedback.comments)" />
 </div>
