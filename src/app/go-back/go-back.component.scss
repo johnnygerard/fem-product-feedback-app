@@ -2,13 +2,27 @@
 
 :host {
   display: block;
+
+  &[data-roadmap] {
+    button {
+      color: #fff;
+    }
+
+    svg {
+      stroke: #CDD2EE;
+    }
+  }
+}
+
+svg {
+  stroke: #4661E6;
 }
 
 button {
   display: flex;
   align-items: center;
   gap: 16px;
-  
+
   // Typography
   color: #647196;
   font-size: 14px;
