@@ -1,29 +1,27 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { User } from './Types/user.type';
 import { Feedback } from './Types/feedback.class';
 import { BehaviorSubject, Subject, delay, of, retry, takeUntil, throwError } from 'rxjs';
 import { FeedbackCategory } from './Types/feedback-category.enum';
 import { FeedbackStatus } from './Types/feedback-status.enum';
 import { SortOrder } from './Types/sort-order.enum';
+import { Data } from './data.type';
+import { testData } from 'src/assets/test-data';
 
-type Data = {
-  currentUser: User;
-  feedback: Feedback[];
+const defaultData: Data = {
+  "currentUser": {
+    "image": "./assets/user-images/image-zena.jpg",
+    "name": "Zena Kelley",
+    "username": "velvetround"
+  },
+  "feedback": []
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService implements OnDestroy {
-  private data: Data = {
-    "currentUser": {
-      "image": "./assets/user-images/image-zena.jpg",
-      "name": "Zena Kelley",
-      "username": "velvetround"
-    },
-    "feedback": []
-  };
+  private data: Data = testData;
   isLoaded$ = new BehaviorSubject(false);
   filter$ = new BehaviorSubject(FeedbackCategory.ALL);
   sortOrder$ = new BehaviorSubject(SortOrder.MOST_UPVOTES);

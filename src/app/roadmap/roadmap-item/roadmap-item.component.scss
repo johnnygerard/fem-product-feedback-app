@@ -1,0 +1,120 @@
+@use 'index' as *;
+
+:host {
+  display: block;
+  border-radius: 5px;
+  background: #FFF;
+  border-top: 6px solid var(--status-color);
+
+  @include desktop {
+    width: 350px;
+    padding: 26px 32px 32px;
+  }
+
+  @include tablet {
+    width: 223px;
+    padding: 20px 20px 24px;
+  }
+
+  @include mobile {
+    width: 327px;
+    padding: 16px 24px 24px;
+  }
+
+  &[data-status="planned"] {
+    --status-color: #F49F85;
+  }
+
+  &[data-status="in-progress"] {
+    --status-color: #AD1FEA;
+  }
+
+  &[data-status="live"] {
+    --status-color: #62BCFA;
+  }
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  // Typography
+  color: #647196;
+  font-size: 13px;
+
+  @include desktop {
+    font-size: 16px;
+  }
+
+  .circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--status-color);
+  }
+}
+
+.title {
+  margin-top: 8px;
+  text-decoration: none;
+
+  &:is(:hover, :focus-visible) {
+    color: #4661E6;
+  }
+
+  // Typography
+  color: #3A4374;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.181px;
+
+  @include desktop {
+    font-size: 18px;
+    letter-spacing: -0.25px;
+  }
+
+  @include tablet {
+    margin-top: 14px;
+  }
+
+  @include mobile {
+    margin-top: 16px;
+  }
+}
+
+.description {
+  margin-top: 9px;
+
+  // Typography
+  color: #647196;
+  font-size: 13px;
+
+  @include desktop {
+    margin-top: 4px;
+
+    // Typography
+    font-size: 16px;
+  }
+}
+
+.category {
+  @include mobile {
+    margin-top: 8px;
+  }
+
+  @include tablet {
+    margin-top: 24px;
+  }
+
+  @include desktop {
+    margin-top: 16px;
+  }
+}
+
+.indicators {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
