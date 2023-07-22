@@ -1,0 +1,28 @@
+@use 'index' as *;
+
+:host {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include mobile {
+    gap: 4px;
+  }
+}
+
+.count {
+  // Typography
+  color: #3A4374;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.222px;
+
+  @include mobile {
+    font-size: 13px;
+    letter-spacing: -0.181px;
+  }
+
+  &.zero {
+    opacity: 0.5;
+  }
+}
