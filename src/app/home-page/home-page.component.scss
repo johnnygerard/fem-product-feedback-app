@@ -1,0 +1,58 @@
+@use 'index' as *;
+
+:host {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 94px 0 129px;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 56px 0 113px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+app-sort {
+  margin-bottom: 24px;
+
+  @include mobile {
+    margin: 0;
+    position: fixed;
+    top: 72px;
+    z-index: 10;
+  }
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include tablet {
+    gap: 16px;
+  }
+
+  @include mobile {
+    padding: 160px 0 55px;
+    align-items: center;
+  }
+}

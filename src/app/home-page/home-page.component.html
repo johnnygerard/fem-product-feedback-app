@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <app-logo />
+  <app-filter *ngIf="!isMobile" />
+  <app-roadmap-view *ngIf="!isMobile" />
+</div>
+<div class="main">
+  <app-sort />
+  <div class="suggestions">
+    <app-no-feedback *ngIf="!suggestionIDs.length" />
+    <app-suggestion [feedbackID]="suggestionID" *ngFor="let suggestionID of suggestionIDs" />
+  </div>
+</div>
