@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { RoadmapItemComponent } from './roadmap/roadmap-item/roadmap-item.component';
+import { RoadmapHeaderComponent } from './roadmap/roadmap-header/roadmap-header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RoadmapItemComponent],
+  imports: [CommonModule, RouterOutlet, RoadmapHeaderComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
