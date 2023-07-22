@@ -1,6 +1,7 @@
 @use 'index' as *;
 
 :host {
+  display: block;
   padding: 28px 32px;
   border-radius: 10px;
   background: #FFF;

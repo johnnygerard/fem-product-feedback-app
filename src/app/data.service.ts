@@ -5,6 +5,7 @@ import { Feedback } from './Types/feedback.class';
 import { BehaviorSubject, Subject, delay, of, retry, takeUntil, throwError } from 'rxjs';
 import { FeedbackCategory } from './Types/feedback-category.enum';
 import { FeedbackStatus } from './Types/feedback-status.enum';
+import { SortOrder } from './Types/sort-order.enum';
 
 type Data = {
   currentUser: User;
@@ -24,6 +25,9 @@ export class DataService implements OnDestroy {
     "feedback": []
   };
   isLoaded$ = new BehaviorSubject(false);
+  filter$ = new BehaviorSubject(FeedbackCategory.ALL);
+  sortOrder$ = new BehaviorSubject(SortOrder.MOST_UPVOTES);
+  suggestionCount$ = new BehaviorSubject(0);
   private readonly destroy$ = new Subject<void>();
 
   constructor(http: HttpClient) {
@@ -55,6 +59,10 @@ export class DataService implements OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
     this.isLoaded$.complete();
+  }
+
+  get feedback(): Feedback[] {
+    return this.data.feedback;
   }
 
   addFeedback(
