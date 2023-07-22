@@ -2,37 +2,52 @@
 
 :host {
   display: block;
-}
 
-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 40px;
-  gap: 8px;
-  padding: 14px 0 8px;
-  border-radius: 10px;
-  background: #F2F4FE;
+  button {
+    border-radius: 10px;
+    background: #F2F4FE;
+    display: flex;
+    align-items: center;
 
-  &:is(:hover, :focus-visible):not(.active) {
-    background: #CFD7FF;
+    &:is(:hover, :focus-visible):not(.active) {
+      background: #CFD7FF;
+    }
+
+    &.active {
+      background: #4661E6;
+    }
   }
 
-  &.active {
-    background: #4661E6;
+  &:not([data-roadmap])>button {
+    flex-direction: column;
+    width: 40px;
+    gap: 8px;
+    padding: 14px 0 8px;
+
+    @include mobile {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+      width: 69px;
+      height: 32px;
+      padding: 0;
+    }
   }
 
-  @include mobile {
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
+  &[data-roadmap]>button {
+    justify-content: space-between;
+    padding: 0 16px;
     width: 69px;
     height: 32px;
-    padding: 0;
+
+    @include desktop {
+      height: 40px;
+    }
   }
 }
 
-span {
+.upvote-count {
+  // Typography
   color: #3A4374;
   font-size: 13px;
   font-weight: 700;

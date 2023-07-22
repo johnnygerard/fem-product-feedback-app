@@ -1,4 +1,4 @@
 <button type="button" (click)="toggleActiveState()" [class.active]="isActive">
   <app-up-arrow-svg [class.active]="isActive" />
-  <span [class.active]="isActive">{{ upvotes }}</span>
+  <span class="upvote-count" [class.active]="isActive">{{ upvotes }}</span>
 </button>
