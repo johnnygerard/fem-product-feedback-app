@@ -69,11 +69,7 @@ app-upvote {
   }
 }
 
-.comment {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
+.comment-count {
   // centered vertically on the right
   position: absolute;
   top: 50%;
@@ -84,13 +80,5 @@ app-upvote {
     top: unset;
     transform: unset;
     bottom: 0;
-  }
-
-  &-count {
-    // Typography
-    color: #3A4374;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.222px;
   }
 }
