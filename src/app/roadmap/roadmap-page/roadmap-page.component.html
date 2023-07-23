@@ -1,0 +1,23 @@
+<app-roadmap-header />
+<div class="tabs" *ngIf="isMobile">
+  <ng-container *ngFor="let status of roadmapStatuses; let i=index">
+    <input type="radio" name="status" id="status-{{ i }}" [value]="status"
+        [(ngModel)]="selectedStatus" />
+    <label class="tab" [class.checked]="status === selectedStatus" for="status-{{ i }}">
+      {{ getTitle(i) }}
+    </label>
+  </ng-container>
+</div>
+<div class="columns">
+  <ng-container *ngFor="let status of roadmapStatuses; let i=index">
+    <div *ngIf="!isMobile || status === selectedStatus">
+      <hgroup>
+        <h1 class="title">{{ getTitle(i) }}</h1>
+        <p class="subtitle">{{ statusMessages[status] }}</p>
+      </hgroup>
+      <div class="column">
+        <app-roadmap-item [feedbackID]="roadmapID" *ngFor="let roadmapID of roadmapItemIDs[i]" />
+      </div>
+    </div>
+  </ng-container>
+</div>
