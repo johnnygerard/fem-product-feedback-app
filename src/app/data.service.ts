@@ -23,6 +23,8 @@ const defaultData: Data = {
 })
 export class DataService implements OnDestroy {
   private data: Data = testData;
+  private nextFeedbackID = 0;
+  private nextCommentID = 0;
   isLoaded$ = new BehaviorSubject(false);
   filter$ = new BehaviorSubject(FeedbackCategory.ALL);
   sortOrder$ = new BehaviorSubject(SortOrder.MOST_UPVOTES);
@@ -44,7 +46,16 @@ export class DataService implements OnDestroy {
       takeUntil(this.destroy$)
     ).subscribe({
       next: data => {
+        const max = (a: number, b: number) => Math.max(a, b);
+
         this.data = data;
+        this.nextFeedbackID = data.feedback
+          .map(feedback => feedback.id)
+          .reduce(max, 0) + 1;
+        this.nextCommentID = data.feedback
+          .flatMap(feedback => feedback.comments ?? [])
+          .map(comment => comment.id)
+          .reduce(max, 0) + 1;
         this.isLoaded$.next(true);
       },
       error: (error: HttpErrorResponse) => {
@@ -70,7 +81,7 @@ export class DataService implements OnDestroy {
     description: string
   ): void {
     this.data.feedback.push(new Feedback(
-      this.data.feedback.length + 1,
+      this.nextFeedbackID++,
       title,
       category,
       description
@@ -78,7 +89,10 @@ export class DataService implements OnDestroy {
   }
 
   getFeedback(id: number): Feedback {
-    return this.data.feedback[id - 1];
+    const feedback = this.data.feedback.find(feedback => feedback.id === id);
+
+    if (!feedback) throw Error(`Feedback with ID ${id} not found.`);
+    return feedback;
   }
 
   countFeedback(status: FeedbackStatus): number {
@@ -88,15 +102,12 @@ export class DataService implements OnDestroy {
   }
 
   postComment(feedbackID: number, content: string): void {
-    const feedback = this.getFeedback(feedbackID);
-    const commentCount = FeedbackComment.countComments(feedback.comments);
-
-    if (!feedback.comments) feedback.comments = [];
-
-    feedback.comments.push(new FeedbackComment(
-      commentCount + 1,
+    const comment = new FeedbackComment(
+      this.nextCommentID++,
       content,
       this.data.currentUser
-    ));
+    );
+
+    (this.getFeedback(feedbackID).comments ??= []).push(comment);
   }
 }

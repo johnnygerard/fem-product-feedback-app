@@ -10,6 +10,9 @@ export class FeedbackComment {
     public readonly user: User,
   ) { }
 
+  /**
+   * Count the number of comments and replies in a feedback.
+   */
   static countComments(comments?: FeedbackComment[]): number {
     if (!comments) return 0;
     let count = comments.length;
