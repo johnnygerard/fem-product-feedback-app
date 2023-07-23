@@ -1,0 +1,13 @@
+<form (ngSubmit)="postComment(form)" #form="ngForm">
+  <label>
+    <span class="label">Add Comment</span>
+    <textarea [class.error]="isError(model, form)" placeholder="Type your comment here"
+        [maxlength]="MAX_COMMENT_LENGTH" name="comment" required [(ngModel)]="comment"
+        #model="ngModel"></textarea>
+    <p class="required-error" *ngIf="isError(model, form)">Can’t be empty</p>
+  </label>
+  <div class="footer">
+    <span class="char-counter">{{ charactersLeft }} Characters left</span>
+    <button type="submit">Post Comment</button>
+  </div>
+</form>
