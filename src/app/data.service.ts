@@ -7,6 +7,7 @@ import { FeedbackStatus } from './Types/feedback-status.enum';
 import { SortOrder } from './Types/sort-order.enum';
 import { Data } from './data.type';
 import { testData } from 'src/assets/test-data';
+import { FeedbackComment } from './Types/feedback-comment.class';
 
 const defaultData: Data = {
   "currentUser": {
@@ -84,5 +85,18 @@ export class DataService implements OnDestroy {
     return this.data.feedback.filter(
       feedback => feedback.status === status
     ).length;
+  }
+
+  postComment(feedbackID: number, content: string): void {
+    const feedback = this.getFeedback(feedbackID);
+    const commentCount = FeedbackComment.countComments(feedback.comments);
+
+    if (!feedback.comments) feedback.comments = [];
+
+    feedback.comments.push(new FeedbackComment(
+      commentCount + 1,
+      content,
+      this.data.currentUser
+    ));
   }
 }
