@@ -1,0 +1,122 @@
+@use 'index' as *;
+@use 'sass:color';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 78px 0 179px;
+
+  @include tablet {
+    padding: 56px 0 95px;
+  }
+
+  @include mobile {
+    padding: 0 0 98px;
+  }
+}
+
+.tabs {
+  display: flex;
+  height: 60px;
+  width: 100%;
+
+  .tab {
+    $text-color: #3A4374;
+
+    flex: 1;
+    border-bottom: 1px solid change-color(#8C92B3, $alpha: 0.25);
+    cursor: pointer;
+
+    // Center content
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+    // Typography
+    color: change-color($text-color, $alpha: 0.4);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.181px;
+
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}).checked {
+        border-bottom: 4px solid nth(#F49F85 #AD1FEA #62BCFA, $i);
+      }
+    }
+
+    &.checked {
+      color: $text-color;
+    }
+
+    &:hover {
+      color: $text-color;
+      border-bottom: 1px solid #8C92B3;
+    }
+  }
+
+  input[type="radio"] {
+    appearance: none;
+
+    &:focus-visible+label {
+      outline: 2px solid #000;
+    }
+  }
+}
+
+.columns {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+
+  @include tablet {
+    margin-top: 32px;
+    gap: 10px;
+  }
+
+  @include mobile {
+    margin-top: 24px;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  gap: 16px;
+
+  @include desktop {
+    margin-top: 32px;
+    gap: 24px;
+  }
+}
+
+.title {
+  // Typography
+  color: #3A4374;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+
+  @include tablet {
+    font-size: 14px;
+    letter-spacing: -0.194px;
+  }
+}
+
+.subtitle {
+  margin-top: 4px;
+
+  // Typography
+  color: #647196;
+  font-size: 16px;
+
+  @include tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 13px;
+  }
+}
