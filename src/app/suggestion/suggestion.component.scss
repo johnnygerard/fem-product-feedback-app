@@ -38,6 +38,11 @@ app-upvote {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.25px;
+  text-decoration: none;
+
+  &:is(:hover, :focus-visible) {
+    color: #4661E6;
+  }
 
   @include mobile {
     font-size: 13px;

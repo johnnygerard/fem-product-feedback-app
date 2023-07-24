@@ -7,12 +7,14 @@ import { CommentIconSvgComponent } from '../svg/comment-icon-svg.component';
 import { Feedback } from '../Types/feedback.class';
 import { FeedbackComment } from '../Types/feedback-comment.class';
 import { CommentCountComponent } from '../comment-count/comment-count.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-suggestion',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     UpvoteComponent,
     FeedbackCategoryComponent,
     CommentIconSvgComponent,
