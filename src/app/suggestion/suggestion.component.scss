@@ -17,7 +17,7 @@
   position: relative;
 
   @include mobile {
-    padding: 0 0 72px;
+    padding: 0 0 48px;
   }
 }
 
@@ -33,6 +33,8 @@ app-upvote {
 }
 
 .title {
+  display: block;
+  
   // Typography
   color: #3A4374;
   font-size: 18px;
