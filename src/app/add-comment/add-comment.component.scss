@@ -39,15 +39,7 @@ textarea {
   height: 80px;
   width: 100%;
 
-  &:is(:hover, :focus-visible):not(.error) {
-    outline: 1px solid #4661E6;
-    outline-offset: -1px;
-  }
-
-  &.error {
-    outline: 1px solid #D73737;
-    outline-offset: -1px;
-  }
+  @include textarea-outline;
 
   // Typography
   color: #3A4374;
@@ -96,18 +88,6 @@ button[type="submit"] {
     padding: 0 16px;
 
     // Typography
-    font-size: 13px;
-  }
-}
-
-.required-error {
-  margin-top: 4px;
-
-  // Typography
-  color: #D73737;
-  font-size: 14px;
-
-  @include mobile {
     font-size: 13px;
   }
 }

@@ -15,3 +15,15 @@
     @content;
   }
 }
+
+@mixin textarea-outline {
+  &:is(:hover, :focus-visible):not(.error) {
+    outline: 1px solid #4661E6;
+    outline-offset: -1px;
+  }
+
+  &.error {
+    outline: 1px solid #D73737;
+    outline-offset: -1px;
+  }
+}
