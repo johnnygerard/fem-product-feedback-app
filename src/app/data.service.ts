@@ -8,6 +8,7 @@ import { SortOrder } from './Types/sort-order.enum';
 import { Data } from './data.type';
 import { testData } from 'src/assets/test-data';
 import { FeedbackComment } from './Types/feedback-comment.class';
+import { User } from './Types/user.type';
 
 const defaultData: Data = {
   "currentUser": {
@@ -95,6 +96,15 @@ export class DataService implements OnDestroy {
     return feedback;
   }
 
+  getComment(commentID: number): FeedbackComment {
+    const comment = this.data.feedback
+      .flatMap(feedback => feedback.comments ?? [])
+      .find(comment => comment.id === commentID);
+
+    if (!comment) throw Error(`Comment with ID ${commentID} not found.`);
+    return comment;
+  }
+
   countFeedback(status: FeedbackStatus): number {
     return this.data.feedback.filter(
       feedback => feedback.status === status
@@ -109,5 +119,9 @@ export class DataService implements OnDestroy {
     );
 
     (this.getFeedback(feedbackID).comments ??= []).push(comment);
+  }
+
+  get currentUser(): User {
+    return this.data.currentUser;
   }
 }

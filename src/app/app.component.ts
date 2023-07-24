@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { AddCommentComponent } from './add-comment/add-comment.component';
+import { CommentComponent } from './comment/comment.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, AddCommentComponent],
+  imports: [CommonModule, RouterOutlet, CommentComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

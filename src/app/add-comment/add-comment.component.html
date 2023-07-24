@@ -4,7 +4,7 @@
     <textarea [class.error]="isError(model, form)" placeholder="Type your comment here"
         [maxlength]="MAX_COMMENT_LENGTH" name="comment" required [(ngModel)]="comment"
         #model="ngModel"></textarea>
-    <p class="required-error" *ngIf="isError(model, form)">Can’t be empty</p>
+    <p class="g-required-error" *ngIf="isError(model, form)">Can’t be empty</p>
   </label>
   <div class="footer">
     <span class="char-counter">{{ charactersLeft }} Characters left</span>
