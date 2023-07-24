@@ -1,6 +1,6 @@
 <hgroup>
   <p class="status"><span class="circle"></span>{{ feedback.status }}</p>
-  <h1><a class="title" routerLink="/feedback/{{ feedbackID }}">{{ feedback.title }}</a></h1>
+  <h1><a class="title" [routerLink]="['/feedback', feedbackID]">{{ feedback.title }}</a></h1>
 </hgroup>
 <p class="description">{{ feedback.description }}</p>
 <app-feedback-category class="category" [category]="feedback.category" />
