@@ -1,9 +1,9 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../data.service';
-import { FeedbackComment } from '../Types/feedback-comment.class';
-import { Reply } from '../Types/reply.class';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { FeedbackComment } from 'src/app/Types/feedback-comment.class';
+import { Reply } from 'src/app/Types/reply.class';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-comment',
