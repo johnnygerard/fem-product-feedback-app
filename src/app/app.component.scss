@@ -1,26 +1,10 @@
 @use 'index' as *;
 
 :host {
-  // display: block;
-  // min-width: 375px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-app-comment {
-  background: #FFF;
-
-  @include mobile {
-    width: 280px;
-  }
-
-  @include tablet {
-    width: 625px;
-  }
-
-  @include desktop {
-    width: 666px;
-  }
+  display: block;
+  min-width: 375px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // min-height: 100vh;
 }
