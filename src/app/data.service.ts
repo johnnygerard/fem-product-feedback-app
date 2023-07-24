@@ -105,6 +105,14 @@ export class DataService implements OnDestroy {
     return comment;
   }
 
+  getCommentIDs(feedbackID: number): number[] {
+    return this.getFeedback(feedbackID).comments?.map(comment => comment.id) ?? [];
+  }
+
+  countComments(feedbackID: number): number {
+    return FeedbackComment.countComments(this.getFeedback(feedbackID).comments);
+  }
+
   countFeedback(status: FeedbackStatus): number {
     return this.data.feedback.filter(
       feedback => feedback.status === status

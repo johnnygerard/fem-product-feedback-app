@@ -1,0 +1,15 @@
+<div class="main">
+  <div class="header">
+    <app-go-back />
+    <a class="edit-feedback" [routerLink]="['/edit-feedback', feedbackID]">Edit Feedback</a>
+  </div>
+  <app-suggestion [feedbackID]="feedbackID" />
+  <div class="comments">
+    <h1 class="comment-count">{{ commentCount }}</h1>
+    <ng-container *ngFor="let commentID of commentIDs; let i=index">
+      <hr class="separator" *ngIf="i">
+      <app-comment [commentID]="commentID" />
+    </ng-container>
+  </div>
+  <app-add-comment [feedbackId]="feedbackID" />
+</div>

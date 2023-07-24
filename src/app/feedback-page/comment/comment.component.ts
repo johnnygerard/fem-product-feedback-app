@@ -1,9 +1,9 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../data.service';
-import { FeedbackComment } from '../Types/feedback-comment.class';
-import { Reply } from '../Types/reply.class';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { FeedbackComment } from 'src/app/Types/feedback-comment.class';
+import { Reply } from 'src/app/Types/reply.class';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-comment',
@@ -12,11 +12,12 @@ import { FormsModule, NgForm, NgModel } from '@angular/forms';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss']
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent {
   @Input({ required: true }) commentID = 0;
   @ViewChild('textarea') textarea?: ElementRef<HTMLTextAreaElement>;
-  private comment = FeedbackComment.default();
-
+  private get comment(): FeedbackComment {
+    return this.dataService.getComment(this.commentID);
+  }
   protected get comments(): Array<FeedbackComment | Reply> {
     return [this.comment, ...(this.comment.replies ?? [])];
   }
@@ -25,10 +26,6 @@ export class CommentComponent implements OnInit {
   protected replyContent = '';
 
   constructor(private readonly dataService: DataService) { }
-
-  ngOnInit(): void {
-    this.comment = this.dataService.getComment(this.commentID);
-  }
 
   protected postReply(index: number): void {
     if (!this.replyContent) return;
