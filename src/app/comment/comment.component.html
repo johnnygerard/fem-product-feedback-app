@@ -1,0 +1,25 @@
+<section class="comment" *ngFor="let comment of comments; let i=index">
+  <img [src]="comment.user.image" alt>
+  <div class="header">
+    <hgroup>
+      <h1 class="name" *ngIf="!i">{{ comment.user.name }}</h1>
+      <h2 class="name" *ngIf="i">{{ comment.user.name }}</h2>
+      <p class="username">@{{ comment.user.username }}</p>
+    </hgroup>
+    <button class="reply-button" type="button" (click)="openReplyForm(i)">Reply</button>
+  </div>
+  <p class="content">
+    <!-- 2 spaces after username -->
+    <span *ngIf="i" class="replyingTo">@{{ getReplyingToUsername(comment) }}&#x20;&#x20;</span>
+    {{ comment.content }}
+  </p>
+  <form class="post-reply-form" *ngIf="replyFormID === i" (ngSubmit)="postReply(i)" #form="ngForm">
+    <div class="textarea-box">
+      <textarea [class.error]="isError(model, form)" name="reply" required #textarea
+          placeholder="Type your reply here" [(ngModel)]="replyContent" #model="ngModel"
+          maxlength="250"></textarea>
+      <p class="g-required-error" *ngIf="isError(model, form)">Can’t be empty</p>
+    </div>
+    <button class="post-reply-button">Post Reply</button>
+  </form>
+</section>
