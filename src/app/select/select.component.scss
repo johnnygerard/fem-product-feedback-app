@@ -1,0 +1,76 @@
+@use 'index' as *;
+@use 'sass:color';
+
+:host {
+  display: block;
+  width: 456px;
+
+  @include mobile {
+    width: 279px;
+
+    // Typography
+    font-size: 13px;
+  }
+}
+
+.selected-option,
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 22px;
+  cursor: pointer;
+
+  @include mobile {
+    padding-left: 16px;
+  }
+}
+
+.selected-option {
+  border-radius: 5px;
+  background: #F7F8FD;
+  height: 48px;
+
+  // Typography
+  color: #3A4374;
+  font-size: 15px;
+
+  @include mobile {
+    font-size: 13px;
+  }
+
+  &:is(:hover, :focus-visible) {
+    outline: 1px solid #4661E6;
+    outline-offset: -1px;
+  }
+}
+
+.option {
+  height: 48px;
+
+  // Typography
+  color: #647196;
+  font-size: 16px;
+
+  @include mobile {
+    font-size: 14px;
+  }
+
+  &:is(:hover, .focused) {
+    color: #AD1FEA;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid change-color(#3A4374, $alpha: 0.15);
+  }
+}
+
+.option-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0 10px 40px -7px rgba(55, 63, 104, 0.35);
+}

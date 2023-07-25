@@ -1,0 +1,12 @@
+<div class="selected-option" (click)="toggleList()">
+  {{ selectedOption }}
+  <app-up-arrow-svg *ngIf="open" />
+  <app-down-arrow-svg *ngIf="!open" />
+</div>
+<div class="option-list" *ngIf="open">
+  <div class="option" [class.focused]="focusedOption === option" *ngFor="let option of options"
+      (click)="select(option); closeList()" (mouseover)="focusedOption = option">
+    {{ option }}
+    <app-checkmark-svg *ngIf="option === selectedOption" />
+  </div>
+</div>
