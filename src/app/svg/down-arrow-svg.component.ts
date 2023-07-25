@@ -7,13 +7,18 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
 <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
-  <path d="M1 1L5 5L9 1" stroke="#4661E6" stroke-width="2"/>
+  <path d="M1 1L5 5L9 1" stroke-width="2"/>
 </svg>
   `,
   styles: [
     `
       :host {
         display: block;
+      }
+
+      path {
+        /* style for sort component with default value */
+        stroke: var(--sort-arrow-color, #4661E6);
       }
     `
   ]

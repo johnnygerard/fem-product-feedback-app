@@ -29,6 +29,7 @@ app-suggestion-icon-svg {
 
 .suggestion-count {
   margin-left: 16px;
+  margin-right: 38px;
 
   // Typography
   color: #FFF;
@@ -38,37 +39,6 @@ app-suggestion-icon-svg {
 
   @include mobile {
     display: none;
-  }
-}
-
-.sort-by {
-  margin-left: 38px;
-
-  @include mobile {
-    margin: 0;
-    font-size: 13px;
-  }
-
-  // Typography
-  color: #F2F4FE;
-  font-size: 14px;
-}
-
-select {
-  background: none;
-  border: none;
-
-  // Typography
-  color: #F2F4FE;
-  font-size: 14px;
-  font-weight: 700;
-
-  &:is(:hover, :focus-visible) {
-    opacity: 0.75;
-  }
-
-  @include mobile {
-    font-size: 13px;
   }
 }
 

@@ -5,6 +5,7 @@ import { SuggestionIconSvgComponent } from '../svg/suggestion-icon-svg.component
 import { AddFeedbackLinkComponent } from '../add-feedback-link.component';
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../data.service';
+import { SelectComponent } from '../select/select.component';
 
 @Component({
   selector: 'app-sort',
@@ -14,6 +15,7 @@ import { DataService } from '../data.service';
     FormsModule,
     SuggestionIconSvgComponent,
     AddFeedbackLinkComponent,
+    SelectComponent,
   ],
   templateUrl: './sort.component.html',
   styleUrls: ['./sort.component.scss']

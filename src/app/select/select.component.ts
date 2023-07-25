@@ -25,6 +25,7 @@ export class SelectComponent implements AfterViewInit {
   #pristine = true;
   open = false;
   @Input({ required: true }) options: string[] = [];
+  @Input('data-sort') sort?: '';
   get selectedOption(): string {
     return this._ngControl.value;
   }
