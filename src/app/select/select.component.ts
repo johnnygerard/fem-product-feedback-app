@@ -94,6 +94,14 @@ export class SelectComponent implements AfterViewInit {
     }
   }
 
+  @HostListener('wheel', ['$event'])
+  onWheel(event: WheelEvent): boolean {
+    if (event.deltaY < 0) this.#selectPreviousOption();
+    else if (event.deltaY > 0) this.#selectNextOption();
+
+    return false; // Prevent scrolling the page
+  }
+
   #selectPreviousOption(): void {
     const index = this.options.indexOf(this.open ? this.focusedOption : this.selectedOption);
     if (index > 0)
