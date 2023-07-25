@@ -1,9 +1,22 @@
 @use 'index' as *;
 @use 'sass:color';
 
+@mixin outline {
+  outline: 1px solid #4661E6;
+  outline-offset: -1px;
+}
+
 :host {
   display: block;
   position: relative;
+
+  &:focus {
+    outline: none;
+
+    .selected-option {
+      @include outline;
+    }
+  }
 
   @include mobile {
     // Typography
@@ -38,9 +51,8 @@
     font-size: 13px;
   }
 
-  &:is(:hover, :focus-visible) {
-    outline: 1px solid #4661E6;
-    outline-offset: -1px;
+  &:hover {
+    @include outline;
   }
 }
 
@@ -53,7 +65,7 @@
     font-size: 14px;
   }
 
-  &:is(:hover, .focused) {
+  &.focused {
     color: #AD1FEA;
   }
 
