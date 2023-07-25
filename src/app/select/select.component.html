@@ -1,7 +1,8 @@
 <div class="selected-option" (click)="toggleList()">
-  {{ selectedOption }}
-  <app-up-arrow-svg *ngIf="open" />
-  <app-down-arrow-svg *ngIf="!open" />
+  <span class="sort-by" *ngIf="sort === ''">Sort by : </span>
+  <span class="selected-option-label">{{ selectedOption }}</span>
+  <app-up-arrow-svg *ngIf="open; else downArrow" />
+  <ng-template #downArrow><app-down-arrow-svg /></ng-template>
 </div>
 <div class="option-list" *ngIf="open">
   <div class="option" [class.focused]="focusedOption === option" *ngFor="let option of options"

@@ -15,13 +15,16 @@ import { CommonModule } from '@angular/common';
       :host {
         display: block;
 
+        /* style for upvote component */
         &.active path {
           stroke: #FFF;
         }
+
       }
 
       path {
-        stroke: #4661E6;
+        /* style for sort component with default value */
+        stroke: var(--sort-arrow-color, #4661E6);
       }
     `
   ]
