@@ -1,13 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GoBackComponent } from '../go-back/go-back.component';
+import { Component, OnDestroy } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataService } from '../data.service';
-import { AddFeedbackIconSvgComponent } from '../svg/add-feedback-icon-svg.component';
-import { FeedbackCategory } from '../Types/feedback-category.enum';
-import { Feedback } from '../Types/feedback.class';
 import { Subject, takeUntil } from 'rxjs';
+import { FeedbackCategory } from '../Types/feedback-category.enum';
+import { DataService } from '../data.service';
+import { GoBackComponent } from '../go-back/go-back.component';
+import { SelectComponent } from '../select/select.component';
+import { AddFeedbackIconSvgComponent } from '../svg/add-feedback-icon-svg.component';
 
 @Component({
   selector: 'app-add-feedback',
@@ -17,6 +17,7 @@ import { Subject, takeUntil } from 'rxjs';
     GoBackComponent,
     FormsModule,
     AddFeedbackIconSvgComponent,
+    SelectComponent,
   ],
   templateUrl: './add-feedback.component.html',
   styleUrls: ['./add-feedback.component.scss']

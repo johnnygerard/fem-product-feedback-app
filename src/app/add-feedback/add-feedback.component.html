@@ -17,11 +17,7 @@
         <h1>Category</h1>
         <p>Choose a category for your feedback</p>
       </hgroup>
-      <select class="control" name="category" [(ngModel)]="category">
-        <option *ngFor="let category of categories" [value]="category">
-          {{ category }}
-        </option>
-      </select>
+      <app-select [options]="categories" name="category" ngDefaultControl [(ngModel)]="category" />
     </label>
     <label>
       <hgroup>
