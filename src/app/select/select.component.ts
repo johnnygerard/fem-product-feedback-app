@@ -63,7 +63,7 @@ export class SelectComponent implements AfterViewInit {
 
   @HostListener('blur')
   onBlur(): void {
-    this.open = false;
+    this.closeList();
   }
 
   @HostListener('keydown', ['$event'])
