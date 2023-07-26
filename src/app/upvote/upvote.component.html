@@ -1,4 +1,6 @@
-<button type="button" (click)="toggleActiveState()" [class.active]="isActive">
+<button type="button" (click)="toggleActiveState()" [class.active]="isActive"
+    [attr.aria-label]="getAriaLabel()">
   <app-up-arrow-svg [class.active]="isActive" />
-  <span class="upvote-count" [class.active]="isActive">{{ upvotes }}</span>
+  <span class="upvote-count" [class.active]="isActive"
+      aria-label="upvote count">{{ upvotes }}</span>
 </button>

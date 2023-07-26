@@ -49,4 +49,8 @@ export class UpvoteComponent implements OnInit {
   get #userUpvotes(): number[] {
     return this.dataService.currentUser.upvotes;
   }
+
+  getAriaLabel(): string {
+    return this.isActive ? 'Remove upvote' : 'Upvote';
+  }
 }
