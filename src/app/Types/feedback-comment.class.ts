@@ -10,10 +10,6 @@ export class FeedbackComment {
     public readonly user: User,
   ) { }
 
-  static default(): FeedbackComment {
-    return new FeedbackComment(0, '', { username: '', name: '', image: '' });
-  }
-
   /**
    * Count the number of comments and replies in a feedback.
    */
