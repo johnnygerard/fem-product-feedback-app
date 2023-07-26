@@ -16,7 +16,7 @@
   }
 }
 
-@mixin textarea-outline {
+@mixin form-control-outline {
   &:is(:hover, :focus-visible):not(.error) {
     outline: 1px solid #4661E6;
     outline-offset: -1px;

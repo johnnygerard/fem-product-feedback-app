@@ -180,19 +180,5 @@ textarea {
 }
 
 .control {
-  &:is(:hover, :focus-visible):not(.invalid) {
-    outline: 1px solid #4661E6;
-  }
-
-  &.invalid {
-    outline: 1px solid #D73737;
-  }
-}
-
-p.invalid {
-  margin-top: 4px;
-
-  // Typography
-  color: #D73737;
-  font-size: 14px;
+  @include form-control-outline;
 }

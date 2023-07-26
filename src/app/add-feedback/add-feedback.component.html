@@ -8,9 +8,9 @@
         <h1>Feedback Title</h1>
         <p>Add a short, descriptive headline</p>
       </hgroup>
-      <input class="control" [class.invalid]="isInvalid(titleInput, form)" name="title"
+      <input class="control" [class.error]="isInvalid(titleInput, form)" name="title"
           [(ngModel)]="title" required #titleInput="ngModel">
-      <p class="invalid" *ngIf="isInvalid(titleInput, form)">{{ requiredError }}</p>
+      <p class="g-required-error" *ngIf="isInvalid(titleInput, form)">{{ requiredError }}</p>
     </label>
     <label>
       <hgroup>
@@ -24,9 +24,9 @@
         <h1>Feedback Detail</h1>
         <p>Include any specific comments on what should be improved, added, etc.</p>
       </hgroup>
-      <textarea class="control" [class.invalid]="isInvalid(detailText, form)" name="detail"
+      <textarea class="control" [class.error]="isInvalid(detailText, form)" name="detail"
           [(ngModel)]="description" required #detailText="ngModel"></textarea>
-      <p class="invalid" *ngIf="isInvalid(detailText, form)">{{ requiredError }}</p>
+      <p class="g-required-error" *ngIf="isInvalid(detailText, form)">{{ requiredError }}</p>
     </label>
     <div class="buttons">
       <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
