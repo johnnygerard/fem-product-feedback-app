@@ -8,6 +8,7 @@
 
   @include mobile {
     padding: 24px;
+    width: 100%; // Prevent horizontal text overflow
   }
 }
 
