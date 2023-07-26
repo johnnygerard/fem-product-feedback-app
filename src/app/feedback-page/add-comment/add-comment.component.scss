@@ -39,7 +39,7 @@ textarea {
   height: 80px;
   width: 100%;
 
-  @include textarea-outline;
+  @include form-control-outline;
 
   // Typography
   color: #3A4374;

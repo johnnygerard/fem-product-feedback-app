@@ -162,6 +162,19 @@ textarea {
     font-weight: 700;
   }
 
+  .delete-button {
+    margin-right: auto;
+    background: #D73737;
+
+    @include mobile {
+      margin: 0;
+    }
+
+    &:is(:hover, :focus-visible) {
+      background: #E98888;
+    }
+  }
+
   .cancel-button {
     background: #3A4374;
 

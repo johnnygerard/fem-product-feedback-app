@@ -137,7 +137,7 @@
         padding: 16px;
       }
 
-      @include textarea-outline;
+      @include form-control-outline;
     }
 
     flex: 1;

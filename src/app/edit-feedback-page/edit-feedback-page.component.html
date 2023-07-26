@@ -1,8 +1,8 @@
 <div class="container">
   <app-go-back />
-  <form (ngSubmit)="submitForm(form)" #form="ngForm">
-    <app-add-feedback-icon-svg class="icon" />
-    <h1 class="title">Create New Feedback</h1>
+  <form *ngIf="dataLoaded" (ngSubmit)="submitForm(form)" #form="ngForm">
+    <app-edit-feedback-icon-svg class="icon" />
+    <h1 class="title">Editing ‘{{ originalTitle }}’</h1>
     <label>
       <hgroup>
         <h1>Feedback Title</h1>
@@ -21,6 +21,13 @@
     </label>
     <label>
       <hgroup>
+        <h1>Update Status</h1>
+        <p>Change feedback state</p>
+      </hgroup>
+      <app-select [options]="statuses" name="status" ngDefaultControl [(ngModel)]="status" />
+    </label>
+    <label>
+      <hgroup>
         <h1>Feedback Detail</h1>
         <p>Include any specific comments on what should be improved, added, etc.</p>
       </hgroup>
@@ -29,8 +36,9 @@
       <p class="g-required-error" *ngIf="isInvalid(detailText, form)">{{ requiredError }}</p>
     </label>
     <div class="buttons">
+      <button class="delete-button" type="button" (click)="deleteFeedback()">Delete</button>
       <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
-      <button class="submit-button">Add Feedback</button>
+      <button class="submit-button">Save Changes</button>
     </div>
   </form>
 </div>
