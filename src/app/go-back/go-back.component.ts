@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-go-back',
@@ -9,9 +10,13 @@ import { CommonModule, Location } from '@angular/common';
   styleUrls: ['./go-back.component.scss']
 })
 export class GoBackComponent {
-  constructor(private readonly location: Location) {}
+  constructor(private location: Location, private router: Router) { }
 
   protected goBack(): void {
+    if (this.router.url === '/roadmap') {
+      this.router.navigate(['/']);
+      return;
+    }
     this.location.back();
   }
 }
