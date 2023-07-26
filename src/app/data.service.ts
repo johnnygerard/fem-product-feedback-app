@@ -6,24 +6,22 @@ import { FeedbackCategory } from './Types/feedback-category.enum';
 import { FeedbackStatus } from './Types/feedback-status.enum';
 import { SortOrder } from './Types/sort-order.enum';
 import { Data } from './data.type';
-import { testData } from 'src/assets/test-data';
 import { FeedbackComment } from './Types/feedback-comment.class';
 import { User } from './Types/user.type';
-
-const defaultData: Data = {
-  "currentUser": {
-    "image": "./assets/user-images/image-zena.jpg",
-    "name": "Zena Kelley",
-    "username": "velvetround"
-  },
-  "feedback": []
-};
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService implements OnDestroy {
-  private data: Data = testData;
+  private data: Data = {
+    "currentUser": {
+      "image": "./assets/user-images/image-zena.jpg",
+      "name": "Zena Kelley",
+      "username": "velvetround",
+      "upvotes": [],
+    },
+    "feedback": []
+  };
   private nextFeedbackID = 0;
   private nextCommentID = 0;
   isLoaded$ = new BehaviorSubject(false);
