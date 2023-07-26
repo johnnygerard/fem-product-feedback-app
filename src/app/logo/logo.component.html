@@ -2,10 +2,12 @@
   <h1 class="title">Frontend Mentor</h1>
   <p class="subtitle">Feedback Board</p>
 </hgroup>
-<button type="button" *ngIf="isMobile && isSidebarOpen" (click)="toggleSidebar()">
+<button type="button" *ngIf="isMobile && isSidebarOpen" (click)="toggleSidebar()"
+    aria-label="Close sidebar">
   <app-cross-icon-svg />
 </button>
-<button type="button" *ngIf="isMobile && !isSidebarOpen" (click)="toggleSidebar()">
+<button type="button" *ngIf="isMobile && !isSidebarOpen" (click)="toggleSidebar()"
+    aria-label="Open sidebar">
   <app-menu-icon-svg />
 </button>
 <div class="backdrop" *ngIf="isMobile && isSidebarOpen">
