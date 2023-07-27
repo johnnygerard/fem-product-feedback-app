@@ -21,6 +21,25 @@
       }
     },
     {
+      "label": "serve (prod)",
+      "type": "shell",
+      "command": "ng serve -c production",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "Generating browser application bundles"
+          },
+          "endsPattern": {
+            "regexp": "Compiled successfully"
+          }
+        }
+      }
+    },
+    {
       "label": "test (all specs)",
       "type": "shell",
       "command": "ng test",

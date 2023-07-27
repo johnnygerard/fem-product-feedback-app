@@ -18,7 +18,7 @@
     }
   }
 
-  &:not([data-roadmap])>button {
+  &:not([data-roadmap]) button {
     flex-direction: column;
     width: 40px;
     gap: 8px;
@@ -34,7 +34,7 @@
     }
   }
 
-  &[data-roadmap]>button {
+  &[data-roadmap] button {
     justify-content: space-between;
     padding: 0 16px;
     width: 69px;
