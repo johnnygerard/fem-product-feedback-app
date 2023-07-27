@@ -15,13 +15,21 @@ This is my solution to the [Product feedback app challenge](https://www.frontend
  - [Website](https://fem-product-feedback-app-jgerard.vercel.app) hosted with [Vercel](https://vercel.com/)
  - [Solution](https://www.frontendmentor.io/solutions/product-feedback-app-jY52dW4757)
 
-<!-- ## Screenshots
-### Desktop
-![desktop screenshot](screenshots/desktop.webp)
-### Tablet
-![tablet screenshot](screenshots/tablet.webp)
-### Mobile
-![mobile screenshot](screenshots/mobile.webp) -->
+## Screenshots
+### Home
+#### Desktop
+![desktop screenshot](screenshots/home-desktop.webp)
+#### Tablet
+![tablet screenshot](screenshots/home-tablet.webp)
+#### Mobile
+![mobile screenshot](screenshots/home-mobile.webp)
+### Roadmap
+#### Desktop
+![desktop screenshot](screenshots/roadmap-desktop.webp)
+#### Tablet
+![tablet screenshot](screenshots/roadmap-tablet.webp)
+#### Mobile
+![mobile screenshot](screenshots/roadmap-mobile.webp)
 
 ## About Frontend Mentor
 [Frontend Mentor](https://www.frontendmentor.io/) challenges help you improve your coding skills by building realistic projects.
