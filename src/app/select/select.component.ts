@@ -68,7 +68,7 @@ export class SelectComponent implements AfterViewInit {
   }
 
   @HostListener('keydown', ['$event'])
-  onKeydown(event: KeyboardEvent): void {
+  onKeydown(event: KeyboardEvent): boolean {
     switch (event.key) {
       case 'ArrowUp':
       case 'ArrowLeft':
@@ -92,7 +92,11 @@ export class SelectComponent implements AfterViewInit {
       case 'Escape':
         this.closeList();
         break;
+      default:
+        return true;
     }
+
+    return false;
   }
 
   @HostListener('wheel', ['$event'])
